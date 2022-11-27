@@ -20,5 +20,21 @@ def national(name):
             print(f"{country_name}: {pro}% ")
     else:
         print('Error Happend..')        
-
-national('theekshana') #name
+def main():
+    get_name = str(input("Enter Your Name..\n"))
+    national(get_name)
+    
+while True:
+    main()
+    options = input("\nType 1 to Enter a New name...\n Type 0 to Exit\n")
+    try:
+        if int(options) == 1:
+            continue
+        elif int(options) == 0:
+            exit()
+        else:
+            print("Wrong option..\n Exiting....")
+            exit()
+    except ValueError:
+        print("Wrong option..\n Exiting....")
+        exit()                    
