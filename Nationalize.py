@@ -1,17 +1,18 @@
 import requests
+import json 
 
 def national(name):
     response = requests.get(f"https://api.nationalize.io/?name={name}")
-    re_no = (response.status_code)
+    re_no = (response.status_code)    
+    re2 = json.load(open('countries.json'))   
 
     if re_no == 200:    
         re = response.json()['country']
         print(f"{name} you're from..\n")
         for co in re:        
-            country = co['country_id']
-            country_code = requests.get(f"https://restcountries.com/v2/alpha/{country}")
+            country = co['country_id']            
             try:
-                country_name = country_code.json()['name']
+                country_name = re2[""+country+""]
             except KeyError:
                 country_name = country              
             probability = co['probability']
