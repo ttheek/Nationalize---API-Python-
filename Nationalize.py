@@ -21,20 +21,12 @@ def national(name):
     else:
         print('Error Happend..')        
 def main():
-    get_name = str(input("Enter Your Name..\n"))
-    national(get_name)
+    get_name = str(input("Type a Name.. or type 0 to exit\n"))
+    if get_name == '0':
+        print('Exiting..')
+        exit()
+    else:    
+        national(get_name)
     
 while True:
-    main()
-    options = input("\nType 1 to Enter a New name...\n Type 0 to Exit\n")
-    try:
-        if int(options) == 1:
-            continue
-        elif int(options) == 0:
-            exit()
-        else:
-            print("Wrong option..\n Exiting....")
-            exit()
-    except ValueError:
-        print("Wrong option..\n Exiting....")
-        exit()                    
+    main()                      
